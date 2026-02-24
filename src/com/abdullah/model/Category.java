@@ -6,6 +6,7 @@ public enum Category {
     GROCERIES,
     SNACKS,
     SUBSCRIPTIONS,
+    GOINGOUT,
     OTHERS;
     @Override
     public String toString(){
