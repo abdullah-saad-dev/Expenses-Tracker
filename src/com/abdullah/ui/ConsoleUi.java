@@ -8,6 +8,7 @@ public class ConsoleUi {
 
     private final ConsoleInputReader inputReader;
     private final Map<Integer, Command> commands;
+    private final int SYSTEM_EXIT_CHOICE = 6;
 
     public ConsoleUi(ConsoleInputReader inputReader, Map<Integer, Command> commands) {
         this.inputReader = inputReader;
@@ -19,14 +20,14 @@ public class ConsoleUi {
         while (isRunning) {
             printMainMenu();
             int userChoice = inputReader.getUserChoice();
-            if (userChoice == 6)
+            if (userChoice == SYSTEM_EXIT_CHOICE)
                 isRunning = false;
             else {
                 Command command = commands.get(userChoice);
-               if(command!=null)
-                   command.execute();
-               else
-                   System.out.println("Please enter a valid option");
+                if (command != null)
+                    command.execute();
+                else
+                    System.out.println("Please enter a valid option");
                 System.out.println("Please enter any key to continue");
                 inputReader.getUserInput();
             }
