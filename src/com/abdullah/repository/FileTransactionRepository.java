@@ -28,7 +28,7 @@ public class FileTransactionRepository extends InMemoryTransactionRepository {
 
     private void loadTransactions() {
         try (Reader reader = new FileReader(file);
-             BufferedReader bufferedReader = new BufferedReader(reader)) {
+                BufferedReader bufferedReader = new BufferedReader(reader)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] attributes = line.split(",");
@@ -37,10 +37,10 @@ public class FileTransactionRepository extends InMemoryTransactionRepository {
                 LocalDate date = LocalDate.parse(attributes[2]);
                 Category category = Category.valueOf(attributes[3].toUpperCase());
                 String description = attributes[4];
-                super.add(new Transaction(id,amount, date, category, description));
+                super.add(new Transaction(id, amount, date, category, description));
             }
         } catch (IOException e) {
-            System.err.println("An Error Occurred : "+ e.getMessage());
+            System.err.println("An Error Occurred : " + e.getMessage());
         }
     }
 
@@ -49,13 +49,14 @@ public class FileTransactionRepository extends InMemoryTransactionRepository {
         super.add(t);
         appendToFile(t);
     }
-    public void appendToFile(Transaction t){
+
+    public void appendToFile(Transaction t) {
         try (Writer writer = new FileWriter(file, true);
-             BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
+                BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
             bufferedWriter.write(t.getId() + "," + t.getAmount() + "," + t.getDate() + ","
-                    + t.getCategory() + "," + t.getDescription() + "\n");
+                    + t.getCategory().name() + "," + t.getDescription() + "\n");
         } catch (IOException e) {
-            System.err.println("An Error Occurred"+e.getMessage());
+            System.err.println("An Error Occurred" + e.getMessage());
         }
     }
 
