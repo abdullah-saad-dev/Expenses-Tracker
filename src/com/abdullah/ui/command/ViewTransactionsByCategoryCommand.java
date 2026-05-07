@@ -31,11 +31,8 @@ public class ViewTransactionsByCategoryCommand implements Command {
         }
         LocalDate[] range = inputReader.getDateRange();
         if (range == null)
-            list.forEach(el -> System.out.println(el + " \n" +
-                    "----------------------------------------------"));
+            printList(list);
         else
-            service.getTransactionsByCategoryOfRange(userChoice, range[0], range[1])
-                    .forEach(el -> System.out.println(el + " \n" +
-                    "----------------------------------------------"));
+            printList(service.getTransactionsByCategoryOfRange(userChoice, range[0], range[1]));
     }
 }

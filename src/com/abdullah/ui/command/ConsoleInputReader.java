@@ -15,6 +15,10 @@ public class ConsoleInputReader {
         this.scanner = new Scanner(System.in);
     }
 
+    public void close() {
+        scanner.close();
+    }
+
     public String getUserInput() {
         return scanner.nextLine();
     }
@@ -63,7 +67,7 @@ public class ConsoleInputReader {
         System.out.println("""
                 Is it today?
                 1.Yes
-                2.No                
+                2.No
                 """);
         if (getUserChoice() == 1)
             return LocalDate.now();
@@ -100,8 +104,8 @@ public class ConsoleInputReader {
         return scanner.nextLine().replace(",", "");
     }
 
-    public LocalDate[] getDateRange() throws NullPointerException{
-        System.out.print(""" 
+    public LocalDate[] getDateRange() throws NullPointerException {
+        System.out.print("""
                 --- Select Date Range ---
                 1. Today
                 2. YesterDay
@@ -117,8 +121,8 @@ public class ConsoleInputReader {
         while (input == 0) {
             input = getUserChoice();
             LocalDate today = LocalDate.now();
-            //range ={ start, end}
-             range = new LocalDate[2];
+            // range ={ start, end}
+            range = new LocalDate[2];
             range[1] = today;
             switch (input) {
                 case 1:

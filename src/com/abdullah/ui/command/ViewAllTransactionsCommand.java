@@ -23,15 +23,14 @@ public class ViewAllTransactionsCommand implements Command {
             return;
         }
         LocalDate[] range = inputReader.getDateRange();
-        if (range != null){
-            list=this.service.getAllTransactionsOfRange(range[0],range[1]);
-            if(list.isEmpty()){
+        if (range != null) {
+            list = this.service.getAllTransactionsOfRange(range[0], range[1]);
+            if (list.isEmpty()) {
                 System.out.println("No transaction found within this range");
                 return;
             }
         }
-        list.forEach(el -> System.out.println(el + " \n" +
-                "----------------------------------------------"));
+        printList(list);
     }
 
 }
