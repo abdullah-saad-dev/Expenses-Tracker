@@ -1,6 +1,6 @@
 ### IntelliJ IDEA ###
 out/
-!**/src/main/**/out/
+transactions.txt
 !**/src/test/**/out/
 .kotlin
 
@@ -28,3 +28,5 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+analysis/analysis_results.md
+dependencies/postgresql-42.7.11.jar
