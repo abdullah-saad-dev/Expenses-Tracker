@@ -1,4 +1,4 @@
-package com.abdullah.ui.command;
+package com.abdullah.ui;
 
 import com.abdullah.model.Category;
 

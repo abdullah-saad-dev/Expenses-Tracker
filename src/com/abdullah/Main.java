@@ -1,9 +1,9 @@
 package com.abdullah;
 
 import com.abdullah.repository.FileTransactionRepository;
-import com.abdullah.repository.InMemoryTransactionRepository;
 import com.abdullah.repository.TransactionRepository;
 import com.abdullah.service.TransactionService;
+import com.abdullah.ui.ConsoleInputReader;
 import com.abdullah.ui.ConsoleUi;
 import com.abdullah.ui.command.*;
 
